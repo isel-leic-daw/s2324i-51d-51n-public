@@ -1,0 +1,6 @@
+= Lecture summaries (LEIC51D)
+:toc: auto
+
+== Week 1
+
+=== Lecture 1: 2023-09-11
