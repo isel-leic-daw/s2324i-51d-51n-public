@@ -34,11 +34,11 @@ Presentations and discussions
 
 == Calendar
 
-* See link:calendar.md[Calendar]
+* See link:../calendar.md[Calendar]
 
 == Resources
 
-* See link:resources.md[Resources]
+* See link:../resources.md[Resources]
 
 == Other
 

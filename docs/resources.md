@@ -8,4 +8,4 @@
   * Freely available at https://learning.oreilly.com/library/view/designing-evolvable-web/9781449337919/.
   * Doesn't cover all the course's contents (mainly covers HTTP API design).
 
-* Class recordings for the [2021 Summer semester](https://educast.fccn.pt/vod/channels/1ltu5jjjum).
+* Class recordings for the [2021 Summer semester](https://educast.fccn.pt/vod/channels/1ltu5jjjum) (in Portuguese).
