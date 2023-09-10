@@ -4,7 +4,7 @@
 
 Provide the students with the knowledge and ability to design and develop HTTP APIs and browser-based applications that use those APIs.
 
-== Syllabus
+== Short Syllabus
 
 * The Spring framework and server-side software organization.
 * HTTP API design.

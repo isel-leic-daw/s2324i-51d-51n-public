@@ -1,4 +1,4 @@
-= Introduction to the Spring Framework and Spring MVC
+= Introduction to the Spring Framework
 
 == Creating an (almost) empty JVM project with Spring Boot
 
@@ -41,6 +41,7 @@
 * Run `./gradlew build`
 ** There will be at least one JAR inside `build/libs`
 ** One of those JARs contains all the classes required to run the application, including the third-party dependencies, such as the Spring libraries. No other dependency will be needed for that.
+*** Uncompress the JAR and take a look around. Notice `.class` files originating on the project's source code and on the dependencies.
 *** It is usual to name this JAR as the "uber JAR" or a "fat JAR".
 
 * Run the application by doing `java -jar build/libs/<library-name>.jar`.
@@ -78,7 +79,7 @@ fun get() = "Hello Web"
 ** Notice that the response contains the `Hello Web` string in the body.
 ** Do the request using curl (e.g. `curl -i http://localhost:8080/examples/1`) and notice that the `Content-Type` header is `text/plain;charset=UTF-8`.
 ** Do the request from a browser and notice that the `Content-Type` is now `text/html; charset=UTF-8`.
-*** Q: Do you know how why the response's content type is different? Can you change the `curl` request commands that the response also uses `text/html`
+*** Q: Do you know how why the response's content type is different? Can you change the `curl` request commands tso hat the response also uses the `text/html` media type.
 
 * Break the execution inside an handler function and observe the call stack.
 
@@ -163,5 +164,4 @@ class ExampleController(
 
 * How does the container/context determines the classes to instantiate?
 ** By scanning a subset of the classpath for classes annotated with special annotations, such as `@Component`.
-
 

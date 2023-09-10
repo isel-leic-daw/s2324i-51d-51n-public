@@ -1,4 +1,4 @@
-package pt.isel.daw.e2.scanning
+package pt.isel.daw.e2.lists
 
 import org.springframework.stereotype.Component
 

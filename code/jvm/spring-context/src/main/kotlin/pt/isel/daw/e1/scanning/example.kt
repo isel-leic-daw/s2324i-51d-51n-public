@@ -1,4 +1,4 @@
-package pt.isel.daw.e1.lists
+package pt.isel.daw.e1.scanning
 
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.AnnotationConfigApplicationContext

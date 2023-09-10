@@ -57,7 +57,7 @@ class NotAController
 class ControllerCollection(
     // Caution: this should really be avoided - application components should not depend on the container/context
     // (however I don't know how to do it differently :( )
-    private val applicationContext: ApplicationContext
+    applicationContext: ApplicationContext
 ) {
     val controllers: List<Any> = applicationContext.getBeansWithAnnotation(Controller::class.java).values.toList()
 }

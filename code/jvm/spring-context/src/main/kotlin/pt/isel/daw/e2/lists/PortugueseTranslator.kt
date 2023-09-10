@@ -1,16 +1,16 @@
-package pt.isel.daw.e2.scanning
+package pt.isel.daw.e2.lists
 
 import org.springframework.stereotype.Component
 
 @Component
-class SpanishTranslator : LanguageTranslator {
+class PortugueseTranslator : LanguageTranslator {
 
     override fun translate(englishWord: String): String? = map[englishWord]
-    override val targetLanguage: String = "es"
+    override val targetLanguage: String = "pt"
 
     companion object {
         private val map = mapOf(
-            "Hello" to "Hola"
+            "Hello" to "Olá"
         )
     }
 }
