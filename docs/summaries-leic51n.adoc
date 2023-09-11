@@ -4,3 +4,9 @@
 == Week 1
 
 === Lecture 1: 2023-09-11
+
+* Course Introduction.
+** Goals and Syllabus.
+** Evaluation.
+** Resources.
+** See link:./lecture-notes/00-course-intro.adoc[/lecture-notes/00-course-intro.adoc].

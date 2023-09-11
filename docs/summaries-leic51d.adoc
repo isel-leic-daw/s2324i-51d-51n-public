@@ -4,3 +4,30 @@
 == Week 1
 
 === Lecture 1: 2023-09-11
+
+* Course Introduction.
+** Goals and Syllabus.
+** Evaluation.
+** Resources.
+** See link:./lecture-notes/00-course-intro.adoc[/lecture-notes/00-course-intro.adoc].
+
+* Introduction to the Spring framework and the Inversion of Control design technique.
+** Creating a base project using link:https://start.spring.io[Spring Initializr]
+** Project structure
+*** Gradle build script and dependencies.
+*** The `main` function.
+** What happens when running the `main` function.
+** Adding a controller.
+** Adding a dependency to the controller.
+** The concepts of _inversion of control_, _dependency_, _dependency injection_ and _dependency injection container_.
+** See: link:../code/spring-boot-demo-leic51d[../code/spring-boot-demo-leic51d]
+
+* The Spring context
+** Creating and using a Spring context.
+** Statically registering component types.
+** Using component scanning.
+** Depending on lists of dependencies.
+** See: link:lecture-notes/01-0-spring-intro-guide-and-notes.adoc[lecture-notes/01-0-spring-intro-guide-and-notes.adoc].
+** See: link:lecture-notes/01-1-ioc-summary-and-recommended-practices.adoc[lecture-notes/01-1-ioc-summary-and-recommended-practices.adoc].
+** See: link:../code/jvm/spring-context[../code/jvm/spring-context].
+
