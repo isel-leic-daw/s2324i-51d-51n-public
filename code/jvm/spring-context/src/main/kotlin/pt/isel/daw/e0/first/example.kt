@@ -29,7 +29,8 @@ class ComponentB(
 }
 
 class ComponentC(
-    val dependency: InterfaceB
+    val dependency: InterfaceB,
+    val anotherDependency: InterfaceA,
 ){
     init {
         log.info("ComponentC ctor.")
@@ -62,4 +63,5 @@ fun main() {
 
     log.info("componentC - {}, anotherComponentC - {}.", componentC, anotherComponentC)
     log.info("componentC.dependency - {}, componentB - {}.", componentC.dependency, componentB)
+    log.info("B.A = {}, C.A = {}", componentB.dependency, componentC.anotherDependency)
 }
