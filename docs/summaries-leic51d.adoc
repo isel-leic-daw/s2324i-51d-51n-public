@@ -31,3 +31,18 @@
 ** See: link:lecture-notes/01-1-ioc-summary-and-recommended-practices.adoc[lecture-notes/01-1-ioc-summary-and-recommended-practices.adoc].
 ** See: link:../code/jvm/spring-context[../code/jvm/spring-context].
 
+=== Lecture 2: 2023-09-14
+
+* The Spring context.
+** Defining bean creation recipes via `@Bean` functions.
+** IoC and DI summary and recommended practices.
+** See: link:lecture-notes/01-1-ioc-summary-and-recommended-practices.adoc[lecture-notes/01-1-ioc-summary-and-recommended-practices.adoc].
+* The Servlet API.
+** Servlets and Servlet servers.
+** The `HttpServet` abstract class.
+** Filters and the filter pipeline.
+*** Examples of processing performed by filters, including _short-circuiting_ the request processing.
+*** The `HttpFilter` abstract class.
+** See: link:../code/jvm/servlet-intro[../code/jvm/servlet-intro]
+** See: link:lecture-notes/01-2-servlets.adoc[lecture-notes/01-2-servlets.adoc]
+

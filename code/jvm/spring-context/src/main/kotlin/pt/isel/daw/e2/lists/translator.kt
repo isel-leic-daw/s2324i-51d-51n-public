@@ -47,6 +47,7 @@ fun main() {
     println(translator.translate("Hello", "es"))
     println(translator.translate("Hello", "sv"))
     println(translator.translate("Hello", "fr"))
+    println(translator.translate("Hello", "de"))
 
 
     /*

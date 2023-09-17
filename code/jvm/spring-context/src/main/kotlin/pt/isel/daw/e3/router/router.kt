@@ -13,7 +13,7 @@ private val log = LoggerFactory.getLogger("main")
  */
 @Target(AnnotationTarget.FUNCTION)
 @Retention(AnnotationRetention.RUNTIME)
-annotation class Handler(
+annotation class MyHandler(
     val method: String,
     val pathTemplate: String,
 )
@@ -25,26 +25,26 @@ annotation class Handler(
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.RUNTIME)
 @Component
-annotation class Controller
+annotation class MyController
 
-@Controller
+@MyController
 class SomeController {
 
-    @Handler("GET", "some/path")
+    @MyHandler("GET", "some/path")
     fun getIndex(): String {
         return "Hello"
     }
 }
 
-@Controller
+@MyController
 class AnotherController {
 
-    @Handler("GET", "another/path")
+    @MyHandler("GET", "another/path")
     fun getIndex(): String {
         return "Hello"
     }
 
-    @Handler("POST", pathTemplate = "another/path")
+    @MyHandler("POST", pathTemplate = "another/path")
     fun create(): Unit {
         // something...
     }
@@ -53,20 +53,24 @@ class AnotherController {
 @Component
 class NotAController
 
+interface ControllerProvider {
+    val controllers: List<Any>
+}
+
 @Component
-class ControllerCollection(
+class SpringContextBasedControllerProvider(
     // Caution: this should really be avoided - application components should not depend on the container/context
     // (however I don't know how to do it differently :( )
     applicationContext: ApplicationContext
-) {
-    val controllers: List<Any> = applicationContext.getBeansWithAnnotation(Controller::class.java).values.toList()
+) : ControllerProvider {
+    override val controllers: List<Any> = applicationContext.getBeansWithAnnotation(MyController::class.java).values.toList()
 }
 
 @Component
 class Router(
-    controllerCollection: ControllerCollection
+    controllerProvider: ControllerProvider
 ){
-    val controllers = controllerCollection.controllers
+    val controllers = controllerProvider.controllers
 }
 
 private fun main() {
@@ -84,10 +88,10 @@ private fun main() {
     log.info("Available controllers - {}", router.controllers)
     router.controllers.forEach {
         val handlerMethods = it.javaClass.methods.filter { method ->
-            method.isAnnotationPresent(Handler::class.java)
+            method.isAnnotationPresent(MyHandler::class.java)
         }
         handlerMethods.forEach { method ->
-            val annotation = method.getAnnotation(Handler::class.java)
+            val annotation = method.getAnnotation(MyHandler::class.java)
             log.info("'{}' on '{}' is handled by '{}'", annotation.method, annotation.pathTemplate, method)
         }
     }

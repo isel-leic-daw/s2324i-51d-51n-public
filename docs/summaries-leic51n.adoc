@@ -10,3 +10,34 @@
 ** Evaluation.
 ** Resources.
 ** See link:./lecture-notes/00-course-intro.adoc[/lecture-notes/00-course-intro.adoc].
+
+=== Lecture 2: 2023-09-14
+
+* Introduction to the Spring framework and the Inversion of Control design technique.
+** Creating a base project using link:https://start.spring.io[Spring Initializr]
+** Project structure
+*** Gradle build script and dependencies.
+*** The `main` function.
+** What happens when running the `main` function.
+** Adding a controller.
+** Adding a dependency to the controller.
+** The concepts of _inversion of control_, _dependency_, _dependency injection_ and _dependency injection container_.
+** See: link:../code/spring-boot-demo-leic51d[../code/spring-boot-demo-leic51d]
+
+* The Spring context.
+** Creating and using a Spring context.
+** Statically registering component types.
+** Using component scanning.
+** Depending on lists of dependencies.
+** Defining bean creation recipes via `@Bean` functions.
+** IoC and DI summary and recommended practices.
+** See: link:lecture-notes/01-1-ioc-summary-and-recommended-practices.adoc[lecture-notes/01-1-ioc-summary-and-recommended-practices.adoc].
+
+* The Servlet API.
+** Servlets and Servlet servers.
+** The `HttpServet` abstract class.
+** Filters and the filter pipeline.
+*** Examples of processing performed by filters, including _short-circuiting_ the request processing.
+*** The `HttpFilter` abstract class.
+** See: link:../code/jvm/servlet-intro[../code/jvm/servlet-intro]
+** See: link:lecture-notes/01-2-servlets.adoc[lecture-notes/01-2-servlets.adoc]
