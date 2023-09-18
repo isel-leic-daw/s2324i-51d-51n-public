@@ -1,0 +1,5 @@
+= Exercises
+
+Just a set of small exercises to explore the concepts and technologies used in DAW.
+
+* link:./01-0-spring-boot.adoc[Spring Boot project and Spring MVC extensibility model].
