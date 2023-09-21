@@ -1,6 +1,13 @@
 = Lecture summaries (LEIC51D)
 :toc: auto
 
+== Week 2
+
+=== Lecture 3: 2023-09-18
+
+* Laboratory class about the Spring framework.
+* See: link:exercises/01-0-spring-boot.adoc
+
 == Week 1
 
 === Lecture 1: 2023-09-11
