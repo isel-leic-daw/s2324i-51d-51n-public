@@ -33,6 +33,9 @@ dependencies {
     // To use Kotlin specific date and time functions
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.1")
 
+    // To get password encode
+    implementation("org.springframework.security:spring-security-core:6.0.2")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation(kotlin("test"))
 }

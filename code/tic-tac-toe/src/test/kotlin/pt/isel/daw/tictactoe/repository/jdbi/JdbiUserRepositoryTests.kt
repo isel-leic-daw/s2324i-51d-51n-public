@@ -9,8 +9,6 @@ import pt.isel.daw.tictactoe.domain.PasswordValidationInfo
 import pt.isel.daw.tictactoe.domain.Token
 import pt.isel.daw.tictactoe.domain.TokenValidationInfo
 import pt.isel.daw.tictactoe.domain.User
-import pt.isel.daw.tictactoe.repository.configureWithAppRequirements
-import pt.isel.daw.tictactoe.repository.jdbi.mappers.JdbiUsersRepository
 import kotlin.random.Random
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -28,7 +26,7 @@ class JdbiUserRepositoryTests {
 
         // when: storing a user
         val userName = newTestUserName()
-        val passwordValidationInfo = PasswordValidationInfo("not-valid")
+        val passwordValidationInfo = PasswordValidationInfo(newTokenValidationData())
         repo.storeUser(userName, passwordValidationInfo)
 
         // and: retrieving a user
@@ -65,7 +63,7 @@ class JdbiUserRepositoryTests {
         val userId = repo.storeUser(userName, passwordValidationInfo)
 
         // and: test TokenValidationInfo
-        val testTokenValidationInfo = TokenValidationInfo("test-data")
+        val testTokenValidationInfo = TokenValidationInfo(newTokenValidationData())
 
         // when: creating a token
         val tokenCreationInstant = clock.now()
@@ -97,6 +95,8 @@ class JdbiUserRepositoryTests {
         private fun runWithHandle(block: (Handle) -> Unit) = jdbi.useTransaction<Exception>(block)
 
         private fun newTestUserName() = "user-${Math.abs(Random.nextLong())}"
+
+        private fun newTokenValidationData() = "token-${Math.abs(Random.nextLong())}"
 
         private val jdbi = Jdbi.create(
             PGSimpleDataSource().apply {

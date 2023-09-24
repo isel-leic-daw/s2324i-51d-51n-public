@@ -1,4 +1,4 @@
-package pt.isel.daw.tictactoe.repository.jdbi.mappers
+package pt.isel.daw.tictactoe.repository.jdbi
 
 import kotlinx.datetime.Instant
 import org.jdbi.v3.core.Handle
@@ -20,7 +20,7 @@ class JdbiUsersRepository(
             .mapTo<User>()
             .singleOrNull()
 
-    override fun storeUser(username: String, passwordValidation: PasswordValidationInfo): String =
+    override fun storeUser(username: String, passwordValidation: PasswordValidationInfo): Int =
         handle.createUpdate(
             """
             insert into dbo.Users (username, password_validation) values (:username, :password_validation)
@@ -31,7 +31,6 @@ class JdbiUsersRepository(
             .executeAndReturnGeneratedKeys()
             .mapTo<Int>()
             .one()
-            .toString()
 
     override fun isUserStoredByUsername(username: String): Boolean =
         handle.createQuery("select count(*) from dbo.Users where username = :username")
@@ -50,7 +49,7 @@ class JdbiUsersRepository(
                 )
             """.trimIndent()
         )
-            .bind("user_id", token.userId.toInt())
+            .bind("user_id", token.userId)
             .bind("offset", maxTokens - 1)
             .execute()
 
@@ -62,7 +61,7 @@ class JdbiUsersRepository(
                 values (:user_id, :token_validation, :created_at, :last_used_at)
             """.trimIndent()
         )
-            .bind("user_id", token.userId.toInt())
+            .bind("user_id", token.userId)
             .bind("token_validation", token.tokenValidationInfo.validationInfo)
             .bind("created_at", token.createdAt.epochSeconds)
             .bind("last_used_at", token.lastUsedAt.epochSeconds)
@@ -121,7 +120,7 @@ class JdbiUsersRepository(
                 User(id, username, passwordValidation),
                 Token(
                     tokenValidation,
-                    id.toString(),
+                    id,
                     Instant.fromEpochSeconds(createdAt),
                     Instant.fromEpochSeconds(lastUsedAt)
                 )

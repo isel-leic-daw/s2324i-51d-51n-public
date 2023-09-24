@@ -11,7 +11,7 @@ interface UsersRepository {
     fun storeUser(
         username: String,
         passwordValidation: PasswordValidationInfo
-    ): String
+    ): Int
 
     fun getUserByUsername(username: String): User?
 

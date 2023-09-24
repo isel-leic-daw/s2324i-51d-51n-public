@@ -9,7 +9,9 @@ class TestClock : Clock {
     // Initialized this way to reduce precision to seconds
     private var testNow: Instant = Instant.fromEpochSeconds(Clock.System.now().epochSeconds)
 
-    fun goIntoTheFuture(duration: Duration) = testNow.plus(duration)
+    fun advance(duration: Duration) {
+        testNow = testNow.plus(duration)
+    }
 
     override fun now() = testNow
 }
