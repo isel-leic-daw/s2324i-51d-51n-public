@@ -14,6 +14,11 @@
 *** link:../code/jvm/spring-mvc-sketches/src/main/kotlin/com/example/demo/controllers/ArgumentResolutionExamplesController.kt[ArgumentResolutionExamplesController]
 *** link:../code/jvm/spring-mvc-sketches/src/main/kotlin/com/example/demo/pipeline/argumentresolvers/ClientIpArgumentResolver.kt[ClientIpArgumentResolver]
 
+=== Lecture 4: 2023-09-21
+
+* Laboratory class about the Spring framework.
+* See: link:exercises/01-0-spring-boot.adoc[01-0-spring-boot.adoc]
+
 == Week 1
 
 === Lecture 1: 2023-09-11

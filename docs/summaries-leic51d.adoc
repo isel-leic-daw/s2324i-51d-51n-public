@@ -6,7 +6,22 @@
 === Lecture 3: 2023-09-18
 
 * Laboratory class about the Spring framework.
-* See: link:exercises/01-0-spring-boot.adoc
+* See: link:exercises/01-0-spring-boot.adoc[01-0-spring-boot.adoc]
+
+=== Lecture 4: 2023-09-21
+
+* Introduction to the Spring MVC framework.
+** Controllers and handlers.
+** Argument resolution.
+*** Supported argument resolution.
+*** Extending argument resolution.
+** Message Converters.
+*** Extending message converters.
+** See: 
+*** link:../code/jvm/spring-mvc-sketches/src/main/kotlin/com/example/demo/controllers/ArgumentResolutionExamplesController.kt[ArgumentResolutionExamplesController]
+*** link:../code/jvm/spring-mvc-sketches/src/main/kotlin/com/example/demo/pipeline/argumentresolvers/ClientIpArgumentResolver.kt[ClientIpArgumentResolver]
+*** link:../code/jvm/spring-mvc-sketches/src/main/kotlin/com/example/demo/controllers/MessageConversionController.kt[MessageConversionController]
+*** link:../code/jvm/spring-mvc-sketches/src/main/kotlin/com/example/demo/pipeline/messageconverters[Message Converters]
 
 == Week 1
 
