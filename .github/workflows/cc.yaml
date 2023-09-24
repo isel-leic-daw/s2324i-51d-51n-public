@@ -12,5 +12,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 17
-      - name: Build with Gradle
+      - name: Build 'jvm' with Gradle
         run: ./code/jvm/gradlew -p code/jvm check
+      - name: Build `tic-tac-toe` with Gradle
+        run: ./code/tic-tac-toe/gradlew -p code/tic-tac-toe check
