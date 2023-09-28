@@ -3,12 +3,14 @@ package pt.isel.daw.tictactoe.domain
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import org.springframework.security.crypto.password.PasswordEncoder
-import java.security.MessageDigest
+import org.springframework.stereotype.Component
 import java.security.SecureRandom
 import java.util.*
 
+@Component
 class UsersDomain(
     private val passwordEncoder: PasswordEncoder,
+    private val tokenEncoder: TokenEncoder,
     private val config: UsersDomainConfig
 ) {
 
@@ -55,21 +57,10 @@ class UsersDomain(
     }
 
     fun createTokenValidationInformation(token: String): TokenValidationInfo =
-        TokenValidationInfo(hash(token))
+        tokenEncoder.createValidationInformation(token)
 
     // TODO it could be better
     fun isSafePassword(password: String) = password.length > 4
 
     val maxNumberOfTokensPerUser = config.maxTokensPerUser
-
-    companion object {
-        private fun hash(input: String): String {
-            val messageDigest = MessageDigest.getInstance("SHA256")
-            return Base64.getUrlEncoder().encodeToString(
-                messageDigest.digest(
-                    Charsets.UTF_8.encode(input).array()
-                )
-            )
-        }
-    }
 }

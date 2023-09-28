@@ -15,4 +15,6 @@ jobs:
       - name: Build 'jvm' with Gradle
         run: ./code/jvm/gradlew -p code/jvm check
       - name: Build `tic-tac-toe` with Gradle
+        env:
+           DB_URL: ${{ secrets.DB_URL }}
         run: ./code/tic-tac-toe/gradlew -p code/tic-tac-toe check

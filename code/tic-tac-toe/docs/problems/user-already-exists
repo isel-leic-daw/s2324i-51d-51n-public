@@ -1,0 +1,1 @@
+A user with the same username already exists

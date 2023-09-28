@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test
 import org.postgresql.ds.PGSimpleDataSource
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import pt.isel.daw.tictactoe.TestClock
+import pt.isel.daw.tictactoe.domain.Sha256TokenEncoder
 import pt.isel.daw.tictactoe.domain.UsersDomain
 import pt.isel.daw.tictactoe.domain.UsersDomainConfig
 import pt.isel.daw.tictactoe.repository.jdbi.JdbiTransactionManager
@@ -270,6 +271,7 @@ class UserServiceTests {
             JdbiTransactionManager(jdbi),
             UsersDomain(
                 BCryptPasswordEncoder(),
+                Sha256TokenEncoder(),
                 UsersDomainConfig(
                     tokenSizeInBytes = 256 / 8,
                     tokenTtl = tokenTtl,

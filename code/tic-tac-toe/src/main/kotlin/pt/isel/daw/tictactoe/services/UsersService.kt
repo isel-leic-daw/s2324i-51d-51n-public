@@ -2,6 +2,7 @@ package pt.isel.daw.tictactoe.services
 
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
+import org.springframework.stereotype.Component
 import pt.isel.daw.tictactoe.domain.Token
 import pt.isel.daw.tictactoe.domain.User
 import pt.isel.daw.tictactoe.domain.UsersDomain
@@ -26,6 +27,7 @@ sealed class TokenCreationError {
 }
 typealias TokenCreationResult = Either<TokenCreationError, TokenExternalInfo>
 
+@Component
 class UsersService(
     private val transactionManager: TransactionManager,
     private val usersDomain: UsersDomain,

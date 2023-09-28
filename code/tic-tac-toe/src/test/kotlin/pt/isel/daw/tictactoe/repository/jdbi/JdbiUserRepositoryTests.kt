@@ -9,6 +9,7 @@ import pt.isel.daw.tictactoe.domain.PasswordValidationInfo
 import pt.isel.daw.tictactoe.domain.Token
 import pt.isel.daw.tictactoe.domain.TokenValidationInfo
 import pt.isel.daw.tictactoe.domain.User
+import kotlin.math.abs
 import kotlin.random.Random
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -94,9 +95,9 @@ class JdbiUserRepositoryTests {
 
         private fun runWithHandle(block: (Handle) -> Unit) = jdbi.useTransaction<Exception>(block)
 
-        private fun newTestUserName() = "user-${Math.abs(Random.nextLong())}"
+        private fun newTestUserName() = "user-${abs(Random.nextLong())}"
 
-        private fun newTokenValidationData() = "token-${Math.abs(Random.nextLong())}"
+        private fun newTokenValidationData() = "token-${abs(Random.nextLong())}"
 
         private val jdbi = Jdbi.create(
             PGSimpleDataSource().apply {

@@ -37,6 +37,8 @@ dependencies {
     implementation("org.springframework.security:spring-security-core:6.0.2")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    // To use WebTestClient on tests
+    testImplementation("org.springframework.boot:spring-boot-starter-webflux")
     testImplementation(kotlin("test"))
 }
 
