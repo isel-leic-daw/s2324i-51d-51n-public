@@ -37,6 +37,7 @@ class JdbiUserRepositoryTests {
         assertNotNull(retrievedUser)
         assertEquals(userName, retrievedUser.username)
         assertEquals(passwordValidationInfo, retrievedUser.passwordValidation)
+        assertTrue(retrievedUser.id >= 0)
 
         // when: asking if the user exists
         val isUserIsStored = repo.isUserStoredByUsername(userName)
