@@ -1,6 +1,29 @@
 = Lecture summaries (LEIC51N)
 :toc: auto
 
+== Week 3
+
+=== Lecture 5: 2023-09-25
+
+* Continuation of the previous class on the Spring MVC library, associated programming model, and extensibility points.
+
+* Organizational principles for the overall web-based system:
+** Frontend component and backend component.
+*** Division of responsibilities, and theirs impact on system correctness and evolution.
+** Backend internal organization
+*** The DBMS and contained databases.
+*** The JVM-based application.
+** Grouping types and functions.
+*** The persistence, services, domain, and HTTP groups.
+*** Testing techniques
+
+* See: link:lecture-notes/02-0-backend-code-organization.adoc[Backend Code organization]
+* See: link:../code/tic-tac-toe[TicTacToe example] 
+
+=== Lecture 6: 2023-09-28
+
+* Continuation of the previous class.
+
 == Week 2
 
 === Lecture 3: 2023-09-18
