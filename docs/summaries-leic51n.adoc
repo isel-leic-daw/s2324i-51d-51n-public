@@ -1,6 +1,32 @@
 = Lecture summaries (LEIC51N)
 :toc: auto
 
+== Week 4
+
+=== Lecture 7: 2023-10-02
+
+* The architecture of the World Wide Web.
+** The Web as an information space composed by resources.
+** Identification, interaction, and formats.
+* The HTTP protocol.
+** Request and response messages.
+** Intermediaries: proxies and gateways.
+** The concept of a uniform interface.
+** Request methods and their semantic.
+** Response status and their semantic.
+** Request, response, and content headers.
+
+* See
+** link:lecture-notes/03-0-web-architecture.adoc[The architecture of the World Wide Web]
+** link:lecture-notes/03-1-the-http-protocol.adoc[The HTTP protocol]
+** link:lecture-notes/03-2-the-http-protocol-slides.pdf[Slides about the HTTP protocol]
+** link:lecture-notes/03-3-api-types-slides.pdf[Slides about API types]
+** link:https://labs.pedrofelix.org/notes/http/how-to-fail[How to fail in HTTP APIs]
+
+=== Lecture 8:
+
+No classes due to national holiday.
+
 == Week 3
 
 === Lecture 5: 2023-09-25
