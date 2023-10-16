@@ -10,6 +10,8 @@
 
 * link:https://git-scm.com/downloads[Git client]
 
+* link:https://www.docker.com/products/docker-desktop/[Docker Desktop]
+
 * For Javascript and Typescript development we will use link:https://code.visualstudio.com/[Visual Studio Code (VSC)].
 ** link:https://marketplace.visualstudio.com/items?itemName=humao.rest-client[Rest Client] is a nice VSC extension to do HTTP requests and visualize HTTP responses.
 
