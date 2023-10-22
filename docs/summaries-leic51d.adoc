@@ -1,6 +1,42 @@
 = Lecture summaries (LEIC51D)
 :toc: auto
 
+== Week 6
+
+=== Lecture 11: 2023-10-16
+
+Supporting the development of the project first phase.
+
+=== Lecture 12: 2023-10-19
+
+Supporting the development of the project first phase.
+
+== Week 5
+
+No lectures this week. However the following resources were made available:
+
+* Videos from previous semesters (in Portuguese)
+** Web Architecture and the HTTP protocol
+*** https://educast.fccn.pt/vod/clips/5aaenivx
+*** https://educast.fccn.pt/vod/clips/2f25isgofd
+** Hypermedia
+*** https://educast.fccn.pt/vod/clips/2f25isgri4
+https://educast.fccn.pt/vod/clips/23fwn3eb4
+** HTTP API design 
+*** https://educast.fccn.pt/vod/clips/5zr24oa0q
+*** https://educast.fccn.pt/vod/clips/1a4x95bzno
+
+* Document on how to design non-success representations:
+** https://labs.pedrofelix.org/notes/http/how-to-fail
+
+=== Lecture 9: 2023-10-09
+
+No lecture, since the lecturer was abroad attending a conference.
+
+=== Lecture 10: 2023-10-12
+
+No lecture, since the lecturer was abroad attending a conference.
+
 == Week 4
 
 === Lecture 7: 2023-10-02
@@ -25,7 +61,7 @@
 ** link:lecture-notes/03-3-api-types-slides.pdf[Slides about API types]
 ** link:https://labs.pedrofelix.org/notes/http/how-to-fail[How to fail in HTTP APIs]
 
-=== Lecture 8:
+=== Lecture 8: 2023-10-05
 
 No classes due to national holiday.
 
