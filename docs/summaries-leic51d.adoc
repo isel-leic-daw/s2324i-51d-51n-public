@@ -1,6 +1,16 @@
 = Lecture summaries (LEIC51D)
 :toc: auto
 
+== Week 7
+
+=== Lecture 13: 2023-10-23
+
+Presentations for the project's first phase.
+
+=== Lecture 14: 2023-10-26
+
+Presentations for the project's first phase.
+
 == Week 6
 
 === Lecture 11: 2023-10-16
