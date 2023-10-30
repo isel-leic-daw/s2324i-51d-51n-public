@@ -2,7 +2,7 @@
 
 == Document and scripts loading
 
-* Start by installing href:https://www.npmjs.com/package/serve[serve] as a way to easily serve files from a local folder via the HTTP protocol.
+* Start by installing link:https://www.npmjs.com/package/serve[serve] as a way to easily serve files from a local folder via the HTTP protocol.
 ** `npm install --global serve`
 * Create an empty folder and add an HTML file named `index.html` to it.
 ----
@@ -70,7 +70,7 @@ export function add(x,y){
 * Add the following to the beginning of both `s1.js` and `s2.js`
 ----
 import { add } from './add.js'
-console(add(1,2))
+console.log(add(1,2))
 ----
 ** Make sure that the loading of `s1.js` has the `"module"` type and the loading of `s2.js` does not.
 ** What is the error occurring during the document loading and why does it happen?
