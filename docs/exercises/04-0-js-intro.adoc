@@ -51,7 +51,7 @@ console.log(something)
 ** Observe the result of reloading the HTML document.
 ** Why is there an error in the console?
 * Add the attribute `type="module"` to the `script` element for `s1.js`.
-** What is the value presented for `console.mainHeading`?
+** What is the value presented for `console.log(mainHeading)`?
 ** Does the previous error still exists? Why?
 
 == Javascript modules
