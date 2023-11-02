@@ -22,7 +22,7 @@
 * Open the browser in `http://localhost:3000` (confirm port on the information produced by serve).
 ** Observe result in browser.
 ** Open the browser's development tools and observe the network requests.
-** Notice how a `GET` to `/` returns the context of `index.html`.
+** Notice how a `GET` to `/` returns the content of `index.html` in the response message body.
 ** Rename the HTML file to `index2.html` and see the result in the browser.
 *** Notice how the `index.html` has a special meaning to the *server*. What is this "special meaning"?
 *** Does it have a special meaning to the browser?
