@@ -1,52 +1,47 @@
 export function createElement(
-    /* TODO */
-    name: string,
-    attrs?: {[key: string]: string | boolean} | undefined,
-    ...children: Array<string | HTMLElement | Array<string | HTMLElement>>
+  name: string,
+  attrs?: { [key: string]: string | boolean } | undefined,
+  ...children: Array<string | number | HTMLElement | Array<string | number | HTMLElement>>
 ): HTMLElement {
-    const elem = document.createElement(name)
-    for (const key in attrs) {
-        const value = attrs[key]
-        if (typeof (value) === "string") {
-            elem.setAttribute(key, value)
-        } else {
-            if (value) {
-                elem.setAttribute(key, "")
-            }
-        }
+  const elem = document.createElement(name);
+  for (const key in attrs) {
+    const value = attrs[key];
+    if (typeof value === 'string') {
+      elem.setAttribute(key, value);
+    } else {
+      if (value) {
+        elem.setAttribute(key, '');
+      }
     }
-    children.forEach(child => {
-        if (typeof child === "string") {
-            elem.appendChild(document.createTextNode(child))
-        } else if(Array.isArray(child)) {
-            child.forEach(it => {
-                if(typeof it == "string") {
-                    elem.appendChild(document.createTextNode(it))
-                }else{
-                    elem.appendChild(it)
-                }
-            })
+  }
+  children.forEach(child => {
+    if (child instanceof HTMLElement) {
+      elem.appendChild(child);
+    } else if (Array.isArray(child)) {
+      child.forEach(it => {
+        if (it instanceof HTMLElement) {
+          elem.appendChild(it);
         } else {
-            elem.appendChild(child)
+          elem.appendChild(document.createTextNode(it.toString()));
         }
-    })
-    return elem
+      });
+    } else {
+      elem.appendChild(document.createTextNode(child.toString()));
+    }
+  });
+  return elem;
 }
 
 // Valid usages
 
-createElement("div")
-createElement("p", null, "Hello World")
-createElement("a", {href: "https://www.typescriptlang.org"}, "typescript")
-createElement("button", {disabled: true}, "Press me")
-createElement("ul", null, 
-    createElement("li", null, "Item 1"),
-    createElement("li", null, "Item 2"),
-)
-const items = [
-    "item 1",
-    "item 2",
-]
-createElement("ul", null,
-    items.map(item => createElement("li", null, item))
-)
+createElement('div');
+createElement('p', null, 'Hello World');
+createElement('a', { href: 'https://www.typescriptlang.org' }, 'typescript');
+createElement('button', { disabled: true }, 'Press me');
+createElement('ul', null, createElement('li', null, 'Item 1'), createElement('li', null, 'Item 2'));
+const items = ['item 1', 'item 2'];
+createElement(
+  'ul',
+  null,
+  items.map(item => createElement('li', null, item))
+);

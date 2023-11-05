@@ -1,3 +1,4 @@
+/** @jsx createElement */
 import { createElement } from './createElement';
 
 type Student = {
@@ -14,6 +15,10 @@ const students: Array<Student> = [
     name: 'Bob',
     number: 12346,
   },
+  {
+    name: 'Carol',
+    number: 12347,
+  }
 ];
 
 export function renderStudents(students: Array<Student>): HTMLElement {
@@ -30,14 +35,31 @@ export function renderStudents(students: Array<Student>): HTMLElement {
           createElement('dt', {}, 'Name'),
           createElement('dd', {}, student.name),
           createElement('dt', {}, 'Number'),
-          createElement('dd', {}, student.number.toString())
+          createElement('dd', {}, student.number)
         )
       )
     )
   );
 }
 
+export function renderStudentsUsingTsx(students: Array<Student>): HTMLElement {
+  return (
+    <div>
+      {students.map(student => (
+        <div>
+          <dl>
+            <dt>Name</dt>
+            <dl>{student.name}</dl>
+            <dt>Number</dt>
+            <dl>{student.number}</dl>
+          </dl>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export function example() {
   const parent = document.getElementById('main-div');
-  parent.appendChild(renderStudents(students));
+  parent.appendChild(renderStudentsUsingTsx(students));
 }
