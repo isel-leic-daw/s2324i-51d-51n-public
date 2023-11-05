@@ -43,3 +43,20 @@ createElement("a", {}, [true])
 * Implement the `createElement` body.
 
 * Use the href:https://www.typescriptlang.org/play[TypeScrypt Playground] to test the type-checking.
+
+* Consider the following type
+
+----
+type Degree = "LEIC" | "MEIC"
+type Student = {
+    name: string,
+    nbr: number,
+    degree: Degree,
+}
+----
+
+Create the following function, using the `createElement` function defined above and representing the array of students in a table.
+
+----
+function render(students: Array<Student>): HTMLElement
+----
