@@ -1,6 +1,34 @@
 = Lecture summaries (LEIC51N)
 :toc: auto
 
+== Week 8
+
+=== Lecture 15: 2023-10-30
+
+* The motivation and the concept of hypermedia.
+** The link:https://docs.github.com/en/rest?apiVersion=2022-11-28[GitHub HTTP API].
+*** The GitHub API home resource.
+*** link:https://www.rfc-editor.org/rfc/rfc6570.html[URI Templates (RFC 6570)].
+*** GitHub API pagination using `Link` headers and hypermedia.
+** The link:https://www.rfc-editor.org/rfc/rfc8288.html[Web Linking RFC].
+*** The concept of link.
+*** Link context, link target, and link relation.
+*** link:https://www.iana.org/assignments/link-relations/link-relations.xhtml[IANA link relation registry].
+
+=== Lecture 16: 2023-11-02
+
+* Introduction to the development of browser-based application.
+** Application loading: HTML document and Javascript scripts.
+** link:./exercises/04-0-js-intro.adoc[Exercises about document loading].
+** The motivation for bundling and an example using module wrapping inside functions.
+** The motivation for an application build step, transforming the source files into the resources provided to the browser.
+*** Bundling - reduction of the HTTP requests needed to load the script resources.
+*** Minification - reduction of the script size.
+*** Compilation - use of a different language on the source files, namely TypeScript.
+* link:https://webpack.js.org[Webpack]-based build step.
+** Difference between dependencies and development dependencies in NPM.
+** Difference between the browser javascript host and the node javascript host.
+
 == Week 7
 
 === Lecture 13: 2023-10-23
