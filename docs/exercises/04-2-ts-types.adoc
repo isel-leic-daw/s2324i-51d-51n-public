@@ -42,7 +42,7 @@ createElement("a", {}, [true])
 
 * Implement the `createElement` body.
 
-* Use the href:https://www.typescriptlang.org/play[TypeScrypt Playground] to test the type-checking.
+* Use the link:https://www.typescriptlang.org/play[TypeScrypt Playground] to test the type-checking.
 
 * Consider the following type
 
