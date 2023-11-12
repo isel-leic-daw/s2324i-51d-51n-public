@@ -18,26 +18,16 @@ const students: Array<Student> = [
   {
     name: 'Carol',
     number: 12347,
-  }
+  },
 ];
 
 export function renderStudents(students: Array<Student>): HTMLElement {
   return createElement(
-    'div',
-    {},
+    'table',
+    { border: '1' },
+    createElement('tr', {}, createElement('th', {}, 'Name'), createElement('th', {}, 'Number')),
     students.map(student =>
-      createElement(
-        'div',
-        {},
-        createElement(
-          'dl',
-          {},
-          createElement('dt', {}, 'Name'),
-          createElement('dd', {}, student.name),
-          createElement('dt', {}, 'Number'),
-          createElement('dd', {}, student.number)
-        )
-      )
+      createElement('tr', {}, createElement('td', {}, student.name), createElement('td', {}, student.number.toString()))
     )
   );
 }
@@ -49,9 +39,9 @@ export function renderStudentsUsingTsx(students: Array<Student>): HTMLElement {
         <div>
           <dl>
             <dt>Name</dt>
-            <dl>{student.name}</dl>
+            <dd>{student.name}</dd>
             <dt>Number</dt>
-            <dl>{student.number}</dl>
+            <dd>{student.number.toString()}</dd>
           </dl>
         </div>
       ))}

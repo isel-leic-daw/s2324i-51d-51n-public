@@ -1,39 +1,36 @@
 export function createElement(
   name: string,
-  attrs?: { [key: string]: string | boolean } | undefined,
-  ...children: Array<string | number | HTMLElement | Array<string | number | HTMLElement>>
+  attrs?: null | Record<string, string | boolean>,
+  ...children: Array<string | HTMLElement | Array<HTMLElement>>
 ): HTMLElement {
-  const elem = document.createElement(name);
-  for (const key in attrs) {
-    const value = attrs[key];
-    if (typeof value === 'string') {
-      elem.setAttribute(key, value);
-    } else {
-      if (value) {
-        elem.setAttribute(key, '');
+  const element = document.createElement(name);
+  if (attrs) {
+    for (const key in attrs) {
+      const value = attrs[key];
+      if (typeof value === 'string') {
+        element.setAttribute(key, value);
+      } else {
+        if (value) {
+          element.setAttribute(key, '');
+        }
       }
     }
   }
   children.forEach(child => {
-    if (child instanceof HTMLElement) {
-      elem.appendChild(child);
+    if (typeof child === 'string') {
+      element.appendChild(document.createTextNode(child));
     } else if (Array.isArray(child)) {
       child.forEach(it => {
-        if (it instanceof HTMLElement) {
-          elem.appendChild(it);
-        } else {
-          elem.appendChild(document.createTextNode(it.toString()));
-        }
+        element.appendChild(it);
       });
     } else {
-      elem.appendChild(document.createTextNode(child.toString()));
+      element.appendChild(child);
     }
   });
-  return elem;
+  return element;
 }
 
 // Valid usages
-
 createElement('div');
 createElement('p', null, 'Hello World');
 createElement('a', { href: 'https://www.typescriptlang.org' }, 'typescript');

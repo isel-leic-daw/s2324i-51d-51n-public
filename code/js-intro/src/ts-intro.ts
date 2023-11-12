@@ -37,24 +37,24 @@ function doSomething(input: string | number) {
   }
 }
 
-const arrayOfStringsOrNumbers: Array<string | number> = ['Alice', 12345];
+const arrayOfStringsOrNumbers: Array<string | number> = [12345, 'Alice'];
 
 // Discriminated sum types
-type Result = { kind: 'network-error'; error: Error } | { kind: 'http-response'; status: number };
+type Result = 
+| { kind: 'network-error', error: Error } 
+| { kind: 'http-response', status: number }
 
 function doAnotherThing(result: Result) {
   switch (result.kind) {
     case 'network-error': {
       // type narrowed to {kind: "network-error", error: Error}
-      console.log(result.error);
+      console.log(result.error.message);
       break;
     }
     case 'http-response': {
       // type narrowed to {kind: "http-response", status: number}
-      console.log(result.kind);
+      console.log(result.status);
       break;
     }
   }
 }
-
-
