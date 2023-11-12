@@ -1,6 +1,33 @@
 = Lecture summaries (LEIC51N)
 :toc: auto
 
+== Week 9
+
+=== Lecture 17: 2023-11-06
+
+* Introduction to the TypeScript type system.
+** Primitive types: `string`, `number`, and `boolean`.
+** Arrays.
+** Object types.
+** Unions, discriminated unions, and type narrowing.
+** See: link:https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html[TypeScript for JavaScript Programmers].
+
+* The JSX and TSX syntax.
+** Using the JSX and TSX syntax with a custom-made function.
+
+=== Lecture 18: 2023-11-09
+
+* Introduction to the React library.
+** User Interface as a function of model.
+** The virtual DOM and its reconciliation with the real DOM.
+** State preservation and component mounting.
+** Defining components and creating elements using components.
+
+* Continuation of the previous class - introduction to the React library.
+** Non-deterministic evaluation of the render function.
+** Stateful components and the `useState` function.
+** Side-effects and the `useEffect` function.
+
 == Week 8
 
 === Lecture 15: 2023-10-30
