@@ -1,5 +1,7 @@
 = React exercises
 
+
+
 == Periodic Fetcher [[periodic_fetcher]]
 
 Create a component for the React library that receives an URL and a time period, in milliseconds.
@@ -7,7 +9,6 @@ When mounted, this component must periodically do an HTTP GET request to the pro
 
 * If the result was an HTTP response message, then the `textarea` must contain the response's body.
 * If the result was an exception, then the `textarea` must contain the exception text.
-The component must.
 
 The component should also show an indication if an HTTP request is pending or not.
 
