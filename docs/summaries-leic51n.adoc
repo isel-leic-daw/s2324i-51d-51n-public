@@ -1,6 +1,26 @@
 = Lecture summaries (LEIC51N)
 :toc: auto
 
+== Week 10
+
+=== Lecture 19: 2023-11-13
+
+* Continuing the study of the React library
+** Usage examples for the `useState` and `useEffect` functions.
+** The _context_ concept and an application example.
+
+=== Lecture 20: 2023-11-16
+
+* Exercise about React - link:./exercises/05-0-react.adoc[Periodic Fetcher]
+* Client-side routing
+** The concept of client-side routing.
+** The browser `history` API for changing the navigation history.
+** Introduction to the the React Router library.
+** Examples.
+
+* See: link: https://developer.mozilla.org/en-US/docs/Web/API/History[The browser's history API].
+* See: link: https://reactrouter.com/en/main[React Router].
+
 == Week 9
 
 === Lecture 17: 2023-11-06
@@ -22,8 +42,6 @@
 ** The virtual DOM and its reconciliation with the real DOM.
 ** State preservation and component mounting.
 ** Defining components and creating elements using components.
-
-* Continuation of the previous class - introduction to the React library.
 ** Non-deterministic evaluation of the render function.
 ** Stateful components and the `useState` function.
 ** Side-effects and the `useEffect` function.
