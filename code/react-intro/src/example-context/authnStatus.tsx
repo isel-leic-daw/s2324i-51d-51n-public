@@ -5,19 +5,23 @@ import {
     useContext,
 } from 'react'
 
+// The state that will be in the context
 type AuthnContextType = {
     loggedIn: boolean,
     setLoggedIn: (v: boolean) => void
 }
+
+// Create a context for the defined types
+// This happens only once
 const AuthnContext = createContext<AuthnContextType>({
     loggedIn: false,
     setLoggedIn: () => {}
 })
 
 export function AuthnStatusProvider({children}: {children: React.ReactNode}) {
-    const [loggedIn, setLoggedIn] = useState(false)
+    const [observedLoggedIn, setLoggedIn] = useState(false)
     return (
-        <AuthnContext.Provider value={{loggedIn: loggedIn, setLoggedIn: setLoggedIn}}>
+        <AuthnContext.Provider value={{loggedIn: observedLoggedIn, setLoggedIn: setLoggedIn}}>
             {children}
         </AuthnContext.Provider>
     )

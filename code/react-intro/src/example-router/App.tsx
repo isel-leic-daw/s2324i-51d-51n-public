@@ -9,7 +9,7 @@ import { RequireAuthn } from './RequireAuthn'
 const router = createBrowserRouter([
     {
         "path": "/",
-        "element": <AuthnContainer><Outlet /></AuthnContainer>,
+        "element": <AuthnContainer><p>Root</p><Outlet /></AuthnContainer>,
         "children": [
             {
                 "path": "/",

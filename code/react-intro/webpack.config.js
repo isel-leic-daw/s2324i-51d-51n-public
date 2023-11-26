@@ -1,6 +1,9 @@
 const ESLintPlugin = require('eslint-webpack-plugin');
 module.exports = {
   mode: 'development',
+  devServer: {
+    historyApiFallback: true
+  },
   resolve: {
     extensions: [".js", ".ts", ".tsx"]
   },

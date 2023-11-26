@@ -1,79 +1,116 @@
-import * as React from "react"
-import { useState } from "react"
-import { Navigate, useLocation } from "react-router-dom"
-import { useSetUser } from "./Authn"
+import * as React from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
+import { useSetUser } from './Authn';
+
+type State =
+  | { tag: 'editing'; error?: string; inputs: { username: string; password: string } }
+  | { tag: 'submitting'; username: string }
+  | { tag: 'redirect' };
+
+type Action =
+  | { type: 'edit'; inputName: string; inputValue: string }
+  | { type: 'submit' }
+  | { type: 'error'; message: string }
+  | { type: 'success' };
+
+function logUnexpectedAction(state: State, action: Action) {
+  console.log(`Unexpected action '${action.type} on state '${state.tag}'`);
+}
+
+function reduce(state: State, action: Action): State {
+  switch (state.tag) {
+    case 'editing':
+      if (action.type === 'edit') {
+        return { tag: 'editing', error: undefined, inputs: { ...state.inputs, [action.inputName]: action.inputValue } };
+      } else if (action.type === 'submit') {
+        return { tag: 'submitting', username: state.inputs.username };
+      } else {
+        logUnexpectedAction(state, action);
+        return state;
+      }
+
+    case 'submitting':
+      if (action.type === 'success') {
+        return { tag: 'redirect' };
+      } else if (action.type === 'error') {
+        return { tag: 'editing', error: action.message, inputs: { username: state.username, password: '' } };
+      } else {
+        logUnexpectedAction(state, action);
+        return state;
+      }
+
+    case 'redirect':
+      logUnexpectedAction(state, action);
+      return state;
+  }
+}
 
 function delay(delayInMs: number) {
-    return new Promise((resolve) => {
-        setTimeout(() => resolve(undefined), delayInMs)
-    })
+  return new Promise(resolve => {
+    setTimeout(() => resolve(undefined), delayInMs);
+  });
 }
 
 export async function authenticate(username: string, password: string): Promise<string | undefined> {
-    await delay(5000)
-    if ((username == "alice" || username == "bob") && password == "1234") {
-        return username
-    }
-    return undefined
+  await delay(5000);
+  if ((username == 'alice' || username == 'bob') && password == '1234') {
+    return username;
+  }
+  return undefined;
 }
 
 export function Login() {
-    console.log("Login")
-    const [inputs, setInputs] = useState({
-        username: "",
-        password: "",
-    })
-    const [isSubmitting, setIsSubmitting] = useState(false)
-    const [error, setError] = useState(undefined)
-    const [redirect, setRedirect] = useState(false)
-    const setUser = useSetUser()
-    const location = useLocation()
-    if(redirect) {
-        return <Navigate to={location.state?.source?.pathname || "/me"} replace={true}/>
+  console.log('Login');
+  const [state, dispatch] = React.useReducer(reduce, { tag: 'editing', inputs: { username: '', password: '' } });
+  const setUser = useSetUser();
+  const location = useLocation();
+  if (state.tag === 'redirect') {
+    return <Navigate to={location.state?.source?.pathname || '/me'} replace={true} />;
+  }
+  function handleChange(ev: React.FormEvent<HTMLInputElement>) {
+    dispatch({ type: 'edit', inputName: ev.currentTarget.name, inputValue: ev.currentTarget.value });
+  }
+  function handleSubmit(ev: React.FormEvent<HTMLFormElement>) {
+    ev.preventDefault();
+    if (state.tag !== 'editing') {
+      return;
     }
-    function handleChange(ev: React.FormEvent<HTMLInputElement>) {
-        const name = ev.currentTarget.name
-        setInputs({ ...inputs, [name]: ev.currentTarget.value })
-        setError(undefined)
-    }
-    function handleSubmit(ev: React.FormEvent<HTMLFormElement>) {
-        ev.preventDefault()
-        setIsSubmitting(true)
-        const username = inputs.username
-        const password = inputs.password
-        authenticate(username, password)
-            .then(res => {
-                setIsSubmitting(false)
-                if (res) {
-                    console.log(`setUser(${res})`)
-                    setUser(res)
-                    setRedirect(true)
-                } else {
-                    setError("Invalid username or password")
-                }
-            })
-            .catch(error => {
-                setIsSubmitting(false)
-                setError(error.message)
-            })
-    }
-    
-    return (
-        <form onSubmit={handleSubmit}>
-            <fieldset disabled={isSubmitting}>
-                <div>
-                    <label htmlFor="username">Username</label>
-                    <input id="username" type="text" name="username" value={inputs.username} onChange={handleChange} />
-                </div>
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input id="password" type="text" name="password" value={inputs.password} onChange={handleChange} />
-                </div>
-                <div>
-                    <button type="submit">Login</button>
-                </div>
-            </fieldset>
-            {error}
-        </form>
-    )
+    dispatch({ type: 'submit' });
+    const username = state.inputs.username;
+    const password = state.inputs.password;
+    authenticate(username, password)
+      .then(res => {
+        if (res) {
+          console.log(`setUser(${res})`);
+          setUser(res);
+          dispatch({ type: 'success' });
+        } else {
+          dispatch({ type: 'error', message: 'Invalid username or password' });
+        }
+      })
+      .catch(error => {
+        dispatch({ type: 'error', message: error.message });
+      });
+  }
+
+  const username = state.tag === 'submitting' ? state.username : state.inputs.username
+  const password = state.tag === 'submitting' ? "" : state.inputs.password
+  return (
+    <form onSubmit={handleSubmit}>
+      <fieldset disabled={state.tag !== 'editing'}>
+        <div>
+          <label htmlFor="username">Username</label>
+          <input id="username" type="text" name="username" value={username} onChange={handleChange} />
+        </div>
+        <div>
+          <label htmlFor="password">Password</label>
+          <input id="password" type="text" name="password" value={password} onChange={handleChange} />
+        </div>
+        <div>
+          <button type="submit">Login</button>
+        </div>
+      </fieldset>
+      {state.tag === 'editing' && state.error}
+    </form>
+  );
 }
