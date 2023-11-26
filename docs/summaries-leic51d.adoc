@@ -1,6 +1,34 @@
 = Lecture summaries (LEIC51D)
 :toc: auto
 
+== Week 11
+
+=== Lecture 21: 2023-11-20
+
+* Continuing the study of the React router library.
+** Redirection between routes.
+** Using the history's state to capture paths between redirects.
+* Component state management using reducers and the `useReducer` hook function.
+** Defining the state and action types.
+** Defining the reducer function.
+** The dispatcher function as the mechanism to send actions to the state machine managed by React.
+** Observing the current state and obtaining the dispatcher function.
+** Application examples.
+
+=== Lecture 22: 2023-11-23
+
+* Using cookies for storing and transporting authentication tokens.
+** Comparison with the usage of the `Authorization` header and explicit storage.
+** `Set-Cookie` attributes.
+*** The `httpOnly` attribute and the protection against XSS attacks.
+*** The `SameSite` attribute and the protection against CSRF attacks.
+*** The `secure` attribute,
+* Comparison between stateful tokens and reference tokens.
+* The concepts of _site_ and _origin_.
+* Using the webpack-dev-server to proxy requests to the HTTP API, as a way to avoid cross-origin requests.
+* See: link: https://web.dev/articles/same-site-same-origin[Understanding "same-site" and "same-origin"].
+* See: link: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie[MDN: Set-Cookie].
+
 == Week 10
 
 === Lecture 19: 2023-11-13
