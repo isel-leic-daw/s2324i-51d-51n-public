@@ -22,4 +22,14 @@ object Uris {
         fun login(): URI = URI(TOKEN)
         fun register(): URI = URI(CREATE)
     }
+
+    object Status {
+        const val HOSTNAME = "$PREFIX/status/hostname"
+        const val IP = "$PREFIX/status/ip"
+    }
+
+    object Chat {
+        const val LISTEN = "$PREFIX/chat/listen"
+        const val SEND = "$PREFIX/chat/send"
+    }
 }
