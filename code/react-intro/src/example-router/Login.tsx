@@ -52,7 +52,7 @@ function delay(delayInMs: number) {
 }
 
 export async function authenticate(username: string, password: string): Promise<string | undefined> {
-  await delay(5000);
+  await delay(3000);
   if ((username == 'alice' || username == 'bob') && password == '1234') {
     return username;
   }
