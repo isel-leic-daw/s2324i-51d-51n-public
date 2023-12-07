@@ -1,6 +1,40 @@
 = Lecture summaries (LEIC51N)
 :toc: auto
 
+== Week 13
+
+=== Lecture 25: 2023-12-04
+
+* Supporting the development of the second phase of the project.
+
+== Week 12
+
+=== Lecture 23: 2023-11-27
+
+* Load balancing
+** Improving performance via horizontal scaling.
+** High availability by using multiple nodes.
+** Balancing policies, such as "round-robing".
+** Service discovery.
+** Retry policies.
+** Analysis of an example using link: https://www.nginx.com[nginx].
+
+* Server-sent events (SSE).
+** Server to client communication, initiated by the server, by using an _open_ HTTP response.
+** The link:https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#event_stream_format[`text/event-stream` media type].
+** Browser support and the link:https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events[`EventSource`] object type.
+** Spring MVC support and the link:https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/servlet/mvc/method/annotation/SseEmitter.html[SseEmitter] class.
+** Analysis of a simple chat application using server-sent events and a stateful server.
+
+=== Lecture 24: 2023-11-30
+
+* Continuation of the previous class.
+* End-to-end testing and the link:https://playwright.dev[Playwright library and tooling]. 
+** Definition of the end-to-end testing.
+** Controlling the browser via external programs.
+** The structure of end-to-end tests.
+* Supporting the development of the second phase of the project.
+
 == Week 11
 
 === Lecture 21: 2023-11-20
