@@ -1,9 +1,23 @@
 = Lecture summaries (LEIC51D)
 :toc: auto
 
+== Week 14
+
+=== Lecture 27: 2023-12-11
+
+* Final project presentations.
+
+=== Lecture 28: 2023-12-14
+
+* Final project presentations.
+
 == Week 13
 
 === Lecture 25: 2023-12-04
+
+* Supporting the development of the second phase of the project.
+
+=== Lecture 26: 2023-12-07
 
 * Supporting the development of the second phase of the project.
 
